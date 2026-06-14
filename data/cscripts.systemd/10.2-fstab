@@ -4,7 +4,7 @@ cat > /etc/fstab << "EOF"
 # file system  mount-point  type     options             dump  fsck
 #                                                              order
 
-/dev/vda1     /            ext4    defaults            1     1
+/dev/sda1     /            ext4    defaults            1     1
 #/dev/sda2     swap         swap     pri=1               0     0
 
 # End /etc/fstab
