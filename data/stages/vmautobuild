@@ -17,7 +17,7 @@ date +%s > log/_$s.start
 
 echo $s > log/current_autoscript
 
-./$s
+./$s | tee log/$s.log
 
 #scripts/$s | tee log/$s.log
 
