@@ -1,5 +1,15 @@
 . env.sh
 
+umount -v $LFS/sys/firmware/efi/efivars
+
+umount -v $LFS/boot/efi
+
 mountpoint -q $LFS/dev/shm && umount $LFS/dev/shm
+
 umount $LFS/dev/pts
-umount $LFS/{sys,proc,run,dev}
+
+umount $LFS/run
+umount $LFS/sys
+umount $LFS/proc
+umount $LFS/dev
+

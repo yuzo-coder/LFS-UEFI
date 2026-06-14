@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-PARTITION="nbd0p1"
+PARTITION="nbd0p2"
 DISK=$(echo "$PARTITION" | sed -E 's/(p[0-9]+|[0-9]+)$//')
 
 ########################################

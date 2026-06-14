@@ -5,7 +5,11 @@ echo "Formatting will be started at 10 seconds..."
 echo "It will destroy all data. Press Ctrl+C to cancel."
 echo ""
 sleep 10
+
+mkfs.vfat -F 32 /dev/nbd0p1
+
 mkfs.ext4 -F /dev/$PARTITION
+
 mount /dev/$PARTITION builddir
 
 # マウントした「後」にコピーする

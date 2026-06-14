@@ -10,10 +10,14 @@ unset {C,CPP,CXX,LD}FLAGS
 
 echo depends bli part_gpt > grub-core/extra_deps.lst
 
-./configure --prefix=/usr          \
-            --sysconfdir=/etc      \
-            --disable-efiemu       \
-            --disable-werror
+./configure --prefix=/usr        \
+             --sysconfdir=/etc    \
+             --localstatedir=/var \
+             --target=x86_64      \
+             --with-platform=efi  \
+             --enable-debug       \
+             --disable-werror     \
+             CFLAGS="-g -O0"
 
 make
 

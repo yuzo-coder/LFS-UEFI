@@ -1,6 +1,6 @@
 #Configuration file for scripts to run on host as root
 
-PARTITION="nbd0p1"
+PARTITION="nbd0p2"
 
 PWD=`pwd`
 LFS="$PWD/builddir"

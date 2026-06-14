@@ -3,9 +3,16 @@
 mount -v --bind /dev $LFS/dev
 
 mount -vt devpts devpts -o gid=5,mode=0620 $LFS/dev/pts
+
 mount -vt proc proc $LFS/proc
+
 mount -vt sysfs sysfs $LFS/sys
+
 mount -vt tmpfs tmpfs $LFS/run
+
+mount -v -t vfat /dev/nbd0p1 $LFS/boot/efi
+
+mount -v -t efivarfs efivarfs $LFS/sys/firmware/efi/efivars
 
 if [ -h $LFS/dev/shm ]; then
   install -v -d -m 1777 $LFS$(realpath /dev/shm)
