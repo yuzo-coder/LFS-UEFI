@@ -6,7 +6,26 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=LFS -
 #grub-mkrescue --output=grub-img.iso
 #xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso
 
-grub-mkconfig -o /boot/grub/grub.cfg
+cat > /boot/grub/grub.cfg << 'EOF'
+set default=0
+set timeout=5
+
+insmod efi_gop
+insmod efi_uga
+insmod font
+insmod part_gpt
+insmod ext2
+
+set root=(hd0,gpt2)
+
+menuentry "GNU/Linux, Linux 6.16.1-lfs-12.4-systemd (True UEFI)" {
+    linux /boot/vmlinuz-6.16.1-lfs-12.4-systemd root=/dev/sda2 ro \
+          video=1024x768 \
+          rd.udev.log_priority=3 \
+          audit=0 \
+          rw
+}
+EOF
 
 mkdir -p /boot/efi/EFI/BOOT
 
