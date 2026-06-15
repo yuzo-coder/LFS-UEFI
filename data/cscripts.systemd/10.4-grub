@@ -6,13 +6,13 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --boot-directory=/boo
 #grub-mkrescue --output=grub-img.iso
 #xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso
 
-grub-mkconfig -o /boot/grub/grub.cfg
-
-sed -i 's|search --no-floppy --fs-uuid|# search --no-floppy --fs-uuid|g' /boot/grub/grub.cfg
+LC_ALL=C grub-mkconfig -o /boot/grub/grub.cfg
 
 sed -i 's|/dev/nbd0p2|/dev/sda2|g' /boot/grub/grub.cfg
 
+sed -i '/load_video/a \	insmod search_fs_uuid' /boot/grub/grub.cfg
+
 mkdir -p /boot/efi/EFI/BOOT
 
-cp -v /boot/grub/grub.cfg /boot/efi/EFI/BOOT/grub.cfg
+cp -fv /boot/grub/grub.cfg /boot/efi/EFI/BOOT/grub.cfg
 
