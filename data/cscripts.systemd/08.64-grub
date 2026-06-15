@@ -15,9 +15,7 @@ echo depends bli part_gpt > grub-core/extra_deps.lst
              --localstatedir=/var \
              --target=x86_64      \
              --with-platform=efi  \
-             --enable-debug       \
-             --disable-werror     \
-             CFLAGS="-g -O0"
+             --disable-werror
 
 make
 
