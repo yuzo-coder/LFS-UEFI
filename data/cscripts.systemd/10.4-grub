@@ -1,6 +1,6 @@
 # grub-install --target=i386-pc /dev/nbd0
 
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=LFS --removable
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --boot-directory=/boot --bootloader-id=LFS --removable
 
 #cd /tmp
 #grub-mkrescue --output=grub-img.iso
