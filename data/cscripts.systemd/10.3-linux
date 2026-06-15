@@ -6,17 +6,17 @@ rm -rfv linux-6.16.1
 
 tar -xf linux-6.16.1.tar.xz
 
-if [[ "$ULFS_COPY_KERNEL_SOURCES" == "YES" ]]
-then
-    cp -rv linux-6.16.1 /usr/src
-fi
+#if [[ "$ULFS_COPY_KERNEL_SOURCES" == "YES" ]]
+#then
+#    cp -rv linux-6.16.1 /usr/src
+#fi
 
 cd linux-6.16.1
 
 #FORCING ARCH 
-ARCH=""
+#ARCH=""
 
-make mrproper
+#make mrproper
 
 cp -f /BLFS/.config /sources/linux-6.16.1/
 
