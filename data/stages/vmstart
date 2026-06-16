@@ -17,6 +17,7 @@ echo "Copying BLFS files to mounted partition..."
 
 mkdir -p builddir/BLFS
 
+# .config copy
 cp ../.config builddir/.config
 
 cp -ar ../BLFS/* builddir/BLFS/
