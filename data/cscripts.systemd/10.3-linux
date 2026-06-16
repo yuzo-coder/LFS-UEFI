@@ -19,7 +19,7 @@ cd linux-6.16.1
 #make mrproper
 
 # 完成した.configを使う (ubuntu)
-cp -f /BLFS/.config /sources/linux-6.16.1/
+cp -f /.config /sources/linux-6.16.1/
 
 # 依存関係自動解決
 # make olddefconfigを実行するとx86_64_defconfigになるため。
