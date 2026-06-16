@@ -14,5 +14,9 @@ mount /dev/$PARTITION builddir
 
 # マウントした「後」にコピーする
 echo "Copying BLFS files to mounted partition..."
+
 mkdir -p builddir/BLFS
+
+cp ../.config builddir/.config
+
 cp -ar ../BLFS/* builddir/BLFS/
