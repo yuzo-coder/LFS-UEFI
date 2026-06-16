@@ -25,7 +25,7 @@ make olddefconfig
 
 # ---------- ここまで追加 ----------
 
-echo 'make -j$(nproc)' >> kernelbuilder
+echo 'make -j$(nproc)' > kernelbuilder
 
 echo 'make modules_install'>> kernelbuilder
 
