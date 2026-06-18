@@ -4,6 +4,8 @@ cd /sources
 
 rm -rfv linux-6.16.1
 
+# https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.16.1.tar.xz
+
 tar -xf linux-6.16.1.tar.xz
 
 #if [[ "$ULFS_COPY_KERNEL_SOURCES" == "YES" ]]
