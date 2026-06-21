@@ -211,6 +211,7 @@ git
 which
 sudo
 openssh-1
+cpio
 
 )
 
