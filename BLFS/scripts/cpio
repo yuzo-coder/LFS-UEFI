@@ -1,0 +1,31 @@
+
+cd "$SRC"
+
+wget https://ftpmirror.gnu.org/cpio/cpio-2.15.tar.bz2
+
+rm -rf cpio-2.15
+
+# 2. アーカイブを展開してディレクトリに移動
+tar -xf cpio-2.15.tar.bz2
+
+cd cpio-2.15
+
+# 3. コンフィグ（LFS 12.4 / 12.5の標準仕様に準拠）
+# グローバルな環境（/usr）に適切に配置され、マニュアルページ（man）もインストールします
+./configure --prefix=/usr \
+            --bindir=/bin \
+            --enable-mt   \
+            --with-rmt=/usr/libexec/rmt \
+            CFLAGS="-O2 -std=gnu17"
+
+# 4. コンパイル（マシンの全パワーを使用）
+make -j$(nproc)
+
+# 5. ドキュメントの生成（必要に応じて）
+makeinfo --html --no-split -o doc/cpio.html doc/cpio.texi
+makeinfo --plaintext       -o doc/cpio.txt  doc/cpio.texi
+
+# 6. システムへのインストール
+make install
+install -v -m755 -d /usr/share/doc/cpio-2.15
+install -v -m644    doc/cpio.{html,txt} /usr/share/doc/cpio-2.15
