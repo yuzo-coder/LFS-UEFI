@@ -37,7 +37,7 @@ if swapon --show | grep -q /swapfile; then
     swapoff "/swapfile"
 fi
 
-dd if=/dev/zero of=/swapfile bs=1M count=12288
+dd if=/dev/zero of=/swapfile bs=1M count=1024
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
