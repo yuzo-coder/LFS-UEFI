@@ -374,7 +374,5 @@ exec switch_root /.root "$init" "$@"
 
 EOF
 
-cd /boot/
 
-mkinitramfs 6.16.1
 echo "===== COMPLETE ====="
